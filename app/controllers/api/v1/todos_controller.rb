@@ -18,6 +18,11 @@ class Api::V1::TodosController < Api::V1::BaseController
   end
 
   def update
+    if @todo.update(todo_params)
+      render json: @todo
+    else
+      render json: @todo.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
