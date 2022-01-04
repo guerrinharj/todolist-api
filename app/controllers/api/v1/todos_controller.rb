@@ -26,6 +26,8 @@ class Api::V1::TodosController < Api::V1::BaseController
   end
 
   def destroy
+    @todo.destroy
+    head :no_content
   end
 
   private
